@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BYSJ_GUI", "BYSJ_GUI\BYSJ_GUI.csproj", "{27EDC3BE-BF95-45A2-A647-F692F1EE06BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27EDC3BE-BF95-45A2-A647-F692F1EE06BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27EDC3BE-BF95-45A2-A647-F692F1EE06BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27EDC3BE-BF95-45A2-A647-F692F1EE06BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27EDC3BE-BF95-45A2-A647-F692F1EE06BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E216D7ED-452E-44AF-B527-E347FE625799}
+	EndGlobalSection
+EndGlobal
