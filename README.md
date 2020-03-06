@@ -6,6 +6,6 @@
 
 
 ## Requirement
-- .Net Framework 4.7.2
+- .Net Framework 4.5+
 
 ## Component
