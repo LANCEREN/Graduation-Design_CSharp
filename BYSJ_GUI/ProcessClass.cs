@@ -2,48 +2,89 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Management.Automation;
+using System.Management.Automation.Runspaces;
+
 
 namespace ProcessClass
 {
-    public class CmdProcess
+    public class TestProcess
     {
-        Process process = new Process();
-        List<string> CmdScriptInput = new List<string>();
-
-        public CmdProcess()
+        Process process;
+        public TestProcess()
         {
-            Console.WriteLine("Create a Cmd Process.");
-            process.StartInfo.FileName = "cmd.exe";
+           
+        }
+        public void testRun()
+        {
+            
+        }
+    }
+
+    public class PwshProcess
+    {
+        Runspace runspace;
+        PowerShell powerShell;
+
+        public PwshProcess()
+        {
+            runspace = RunspaceFactory.CreateRunspace();
+            powerShell = PowerShell.Create();
+        }
+        public void pwshRun()
+        {
+            runspace.Open();
+            powerShell.Runspace = runspace;
+            powerShell.AddScript("get-childitem -Force");
+
+            foreach (PSObject result in powerShell.Invoke())
+            {
+                Console.WriteLine(result);
+            }
+        }
+    }
+
+    public class ShellProcess
+    {
+        Process process;
+        List<string> ShellScriptInput;
+
+        public ShellProcess(string shellname)
+        {
+            process = new Process();
+            ShellScriptInput = new List<string>();
+            Console.WriteLine($"Create a {shellname} Process.");
+            process.StartInfo.FileName = shellname;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardInput = true;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.CreateNoWindow = false;
            
         }
-        public void cmdScriptAdd(string script)
+        public void shellScriptAdd(string script)
         {
-            CmdScriptInput.Add(script);
-            CmdScriptInput.Add(" & ");
+            ShellScriptInput.Add(script);
         }
 
-        public void cmdScriptSampleAdd()
+        public void shellScriptSampleAdd()
         {
-            cmdScriptAdd("conda activate opencv");
-            cmdScriptAdd(@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --input C:\Users\Lance\Desktop\2.JPG");
+            shellScriptAdd("conda activate opencv");
+            shellScriptAdd(@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --input C:\Users\Lance\Desktop\2.JPG");
         }
 
-        public void cmdRun()
+        public void shellRun()
         {
-            CmdScriptInput.Add("exit");
+            ShellScriptInput.Add("exit");
             try
             {
                 process.Start();
-                foreach (string CmdStr in CmdScriptInput)
+                foreach (string shell_StringLine in ShellScriptInput)
                 {
-                    Console.WriteLine(CmdStr);
-                    process.StandardInput.WriteLine(CmdStr);
+                    Console.WriteLine(shell_StringLine);
+                    process.StandardInput.WriteLine(shell_StringLine);
                 }
+                
                 process.StandardInput.AutoFlush = true;
                 string strOuput = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();

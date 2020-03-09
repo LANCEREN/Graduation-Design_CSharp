@@ -35,11 +35,17 @@ namespace BYSJ_GUI
                     Console.WriteLine(strNames.Length);
                 }
             }
-           
 
-            //CmdProcess cmdProcess = new CmdProcess();
-            //cmdProcess.cmdScriptSampleAdd();
-            //cmdProcess.cmdRun();
+            //TestProcess testProcess = new TestProcess();
+            //testProcess.testRun();
+
+            PwshProcess pwshProcess = new PwshProcess();
+            pwshProcess.pwshRun();
+
+            //ShellProcess shellProcess = new ShellProcess("cmd.exe");
+            //shellProcess.shellScriptSampleAdd();
+            //shellProcess.shellRun();
+
         }
     }
 }
