@@ -10,6 +10,6 @@ img = cv2.imread(path)
 cv2.namedWindow("win",cv2.WINDOW_AUTOSIZE)
 cv2.imshow("win",img)
 
-cv2.waitKey(0)
+cv2.waitKey()
 cv2.destroyAllWindows()
 print("----")
