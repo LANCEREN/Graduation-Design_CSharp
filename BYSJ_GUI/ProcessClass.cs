@@ -6,73 +6,16 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 
 
-namespace ProcessClass
+namespace ProcessClassesNamespace
 {
-    public class TestPowershellProcess
-    {
-        Runspace runspace;
-        PowerShell powerShell;
-        public TestPowershellProcess()
-        {
-            runspace = RunspaceFactory.CreateRunspace();
-            powerShell = PowerShell.Create();
-        }
-        public void TestPowershellRun()
-        {
-            runspace.Open();
-            powerShell.Runspace = runspace;
-            powerShell.AddScript("get-childitem -Force");
-
-            foreach (PSObject result in powerShell.Invoke())
-            {
-                Console.WriteLine(result);
-            }
-        }
-    }
-
-    public class CmdProcess : ShellProcess 
-    {
-         public CmdProcess():base()
-        {
-            CmdProcessSetting();
-        }
-         public CmdProcess(List<string> fileNamesInput):base(fileNamesInput)
-        {
-            CmdProcessSetting();
-        }
-         public CmdProcess(string folderPathInput) : base(folderPathInput)
-        {
-            CmdProcessSetting();
-        }
-        private void CmdProcessSetting()
-        {
-            process.StartInfo.FileName = "cmd.exe";
-            Console.WriteLine("Create a cmd.exe !");
-        }
-
-
-    }
-
     public class ShellProcess
     {
         public Process process;
         public List<string> ShellScriptInput;
-        protected List<string> filesNames;
-        protected string folderPath;
 
          public ShellProcess()
         {
             ProcessSetting();
-        }
-         public ShellProcess(List<string> fileNamesInput)
-        {
-            ProcessSetting();
-            filesNames = fileNamesInput;
-        }
-         public ShellProcess(string folderPathInput)
-        {
-            ProcessSetting();
-            folderPath = folderPathInput;
         }
 
         private void ProcessSetting()
@@ -84,42 +27,12 @@ namespace ProcessClass
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
             process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.FileName = "cmd.exe";
         }
 
         public void shellScriptAdd(string script)
         {
             ShellScriptInput.Add(script);
-        }
-
-        public void shellScriptSampleAdd()
-        {
-            shellScriptAdd("conda activate opencv");
-            shellScriptAdd(@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --input C:\Users\Lance\Desktop\2.JPG");
-        }
-
-        public void shellScript_showPicturesbyFiles()
-        {
-            if(filesNames.Count == 0)
-            {
-                Console.WriteLine("There is no selected pictures! ");
-                return;
-            }
-            shellScriptAdd("conda activate opencv");
-            foreach(string selectedPicture in filesNames)
-            {
-                shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --input {selectedPicture}");
-            }
-        }
-
-        public void shellScript_showPicturesbyFolder()
-        {
-            if (string.IsNullOrEmpty(folderPath))
-            {
-                Console.WriteLine("There is no Path!");
-                return;
-            }
-            shellScriptAdd("conda activate opencv");
-            shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --input {folderPath}");
         }
 
         public void shellRun()
@@ -147,8 +60,84 @@ namespace ProcessClass
             }
         }
 
+    }
 
+    public class CmdProcess : ShellProcess
+    {
+        public CmdProcess() : base()
+        {
+            CmdProcessSetting();
+        }
 
+        private void CmdProcessSetting()
+        {
+            process.StartInfo.FileName = "cmd.exe";
+            Console.WriteLine("Create a cmd.exe ");
+        }
+
+    }
+
+    public class Graduate_DesignProcess : CmdProcess
+    {
+        protected List<string> filesNames;
+        protected string folderPath;
+
+        public Graduate_DesignProcess(List<string> fileNamesInput) : base()
+        {
+            filesNames = fileNamesInput;
+        }
+        public Graduate_DesignProcess(string folderPathInput) : base()
+        {
+            folderPath = folderPathInput;
+        }
+
+        public void GD_processScript_showPicturesbyFiles()
+        {
+            if (filesNames.Count == 0)
+            {
+                Console.WriteLine("There is no selected pictures! ");
+                return;
+            }
+            shellScriptAdd("conda activate opencv");
+            foreach (string selectedPicture in filesNames)
+            {
+                shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --file {selectedPicture}");
+            }
+        }
+
+        public void GD_processScript_showPicturesbyFolder()
+        {
+            if (string.IsNullOrEmpty(folderPath))
+            {
+                Console.WriteLine("There is no Path!");
+                return;
+            }
+            shellScriptAdd("conda activate opencv");
+            //shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --folder {folderPath}");
+        }
+
+    }
+
+    public class TestPowershellProcess
+    {
+        Runspace runspace;
+        PowerShell powerShell;
+        public TestPowershellProcess()
+        {
+            runspace = RunspaceFactory.CreateRunspace();
+            powerShell = PowerShell.Create();
+        }
+        public void TestPowershellRun()
+        {
+            runspace.Open();
+            powerShell.Runspace = runspace;
+            powerShell.AddScript("get-childitem -Force");
+
+            foreach (PSObject result in powerShell.Invoke())
+            {
+                Console.WriteLine(result);
+            }
+        }
     }
 
 }
