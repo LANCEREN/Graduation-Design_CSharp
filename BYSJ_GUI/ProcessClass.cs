@@ -113,7 +113,7 @@ namespace ProcessClassesNamespace
                 return;
             }
             shellScriptAdd("conda activate opencv");
-            //shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --folder {folderPath}");
+            shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --folder {folderPath}");
         }
 
     }
