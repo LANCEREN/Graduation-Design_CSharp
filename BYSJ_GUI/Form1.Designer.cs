@@ -28,26 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BrowseButton = new System.Windows.Forms.Button();
+            this.BrowseFilesButton = new System.Windows.Forms.Button();
+            this.BrowseFoldersButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // BrowseButton
+            // BrowseFilesButton
             // 
-            this.BrowseButton.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BrowseButton.Location = new System.Drawing.Point(655, 473);
-            this.BrowseButton.Name = "BrowseButton";
-            this.BrowseButton.Size = new System.Drawing.Size(87, 31);
-            this.BrowseButton.TabIndex = 0;
-            this.BrowseButton.Text = "Browse Files";
-            this.BrowseButton.UseVisualStyleBackColor = true;
-            this.BrowseButton.Click += new System.EventHandler(this.button1_Click);
+            this.BrowseFilesButton.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BrowseFilesButton.Location = new System.Drawing.Point(521, 478);
+            this.BrowseFilesButton.Name = "BrowseFilesButton";
+            this.BrowseFilesButton.Size = new System.Drawing.Size(95, 31);
+            this.BrowseFilesButton.TabIndex = 0;
+            this.BrowseFilesButton.Text = "Browse Files";
+            this.BrowseFilesButton.UseVisualStyleBackColor = true;
+            this.BrowseFilesButton.Click += new System.EventHandler(this.BrowseFilesButton_Click);
+            // 
+            // BrowseFoldersButton
+            // 
+            this.BrowseFoldersButton.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BrowseFoldersButton.Location = new System.Drawing.Point(622, 478);
+            this.BrowseFoldersButton.Name = "BrowseFoldersButton";
+            this.BrowseFoldersButton.Size = new System.Drawing.Size(95, 31);
+            this.BrowseFoldersButton.TabIndex = 1;
+            this.BrowseFoldersButton.Text = "Browse Folders";
+            this.BrowseFoldersButton.UseVisualStyleBackColor = true;
+            this.BrowseFoldersButton.Click += new System.EventHandler(this.BrowseFoldersButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1381, 744);
-            this.Controls.Add(this.BrowseButton);
+            this.Controls.Add(this.BrowseFoldersButton);
+            this.Controls.Add(this.BrowseFilesButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -56,7 +69,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button BrowseButton;
+        private System.Windows.Forms.Button BrowseFilesButton;
+        private System.Windows.Forms.Button BrowseFoldersButton;
     }
 }
 
