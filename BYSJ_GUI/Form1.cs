@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ProcessClass;
+using ProcessClassesNamespace;
 
 namespace BYSJ_GUI
 {
@@ -47,14 +47,10 @@ namespace BYSJ_GUI
                         Console.WriteLine(filesNamesArray[i]);
                     }
                 }
-               
             }
-            //TestProcess testProcess = new TestProcess();
-            //testProcess.testRun();
-
-            CmdProcess cmdProcess = new CmdProcess(fileNamesInput: filesNames);
-            cmdProcess.shellScript_showPicturesbyFiles();
-            cmdProcess.shellRun();
+            Graduate_DesignProcess graduate_DesignProcess = new Graduate_DesignProcess(fileNamesInput: filesNames);
+            graduate_DesignProcess.GD_processScript_showPicturesbyFiles();
+            graduate_DesignProcess.shellRun();
         }
 
         private void BrowseFoldersButton_Click(object sender, EventArgs e)
@@ -76,9 +72,9 @@ namespace BYSJ_GUI
                     folderPath = folderBrowserDialog.SelectedPath;
                 }
             }
-            CmdProcess cmdProcess = new CmdProcess(folderPathInput: folderPath);
-            cmdProcess.shellScript_showPicturesbyFiles();
-            cmdProcess.shellRun();
+            Graduate_DesignProcess graduate_DesignProcess = new Graduate_DesignProcess(folderPathInput: folderPath);
+            graduate_DesignProcess.GD_processScript_showPicturesbyFiles();
+            graduate_DesignProcess.shellRun();
 
         }
     }
