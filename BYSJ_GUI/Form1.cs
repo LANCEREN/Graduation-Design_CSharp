@@ -39,12 +39,12 @@ namespace BYSJ_GUI
             //TestProcess testProcess = new TestProcess();
             //testProcess.testRun();
 
-            PwshProcess pwshProcess = new PwshProcess();
-            pwshProcess.pwshRun();
+            //PwshProcess pwshProcess = new PwshProcess();
+            //pwshProcess.pwshRun();
 
-            //ShellProcess shellProcess = new ShellProcess("cmd.exe");
-            //shellProcess.shellScriptSampleAdd();
-            //shellProcess.shellRun();
+            ShellProcess shellProcess = new ShellProcess("cmd.exe");
+            shellProcess.shellScriptSampleAdd();
+            shellProcess.shellRun();
 
         }
     }
