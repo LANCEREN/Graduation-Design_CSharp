@@ -59,7 +59,7 @@ namespace ProcessClass
             process.StartInfo.RedirectStandardInput = true;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.CreateNoWindow = false;
+            process.StartInfo.CreateNoWindow = true;
            
         }
         public void shellScriptAdd(string script)
@@ -75,18 +75,19 @@ namespace ProcessClass
 
         public void shellRun()
         {
-            ShellScriptInput.Add("exit");
+            shellScriptAdd("exit");
             try
             {
                 process.Start();
+                process.StandardInput.AutoFlush = true;
                 foreach (string shell_StringLine in ShellScriptInput)
                 {
-                    Console.WriteLine(shell_StringLine);
                     process.StandardInput.WriteLine(shell_StringLine);
                 }
-                
-                process.StandardInput.AutoFlush = true;
+                process.StandardInput.Close();
                 string strOuput = process.StandardOutput.ReadToEnd();
+                process.StandardOutput.Close();
+
                 process.WaitForExit();
                 process.Close();
                 Console.WriteLine(strOuput);
