@@ -8,30 +8,16 @@ using System.Management.Automation.Runspaces;
 
 namespace ProcessClass
 {
-    public class TestProcess
-    {
-        Process process;
-        public TestProcess()
-        {
-           
-        }
-        public void testRun()
-        {
-            
-        }
-    }
-
-    public class PwshProcess
+    public class TestPowershellProcess
     {
         Runspace runspace;
         PowerShell powerShell;
-
-        public PwshProcess()
+        public TestPowershellProcess()
         {
             runspace = RunspaceFactory.CreateRunspace();
             powerShell = PowerShell.Create();
         }
-        public void pwshRun()
+        public void TestPowershellRun()
         {
             runspace.Open();
             powerShell.Runspace = runspace;
@@ -44,24 +30,62 @@ namespace ProcessClass
         }
     }
 
+    public class CmdProcess : ShellProcess 
+    {
+         public CmdProcess():base()
+        {
+            CmdProcessSetting();
+        }
+         public CmdProcess(List<string> fileNamesInput):base(fileNamesInput)
+        {
+            CmdProcessSetting();
+        }
+         public CmdProcess(string folderPathInput) : base(folderPathInput)
+        {
+            CmdProcessSetting();
+        }
+        private void CmdProcessSetting()
+        {
+            process.StartInfo.FileName = "cmd.exe";
+            Console.WriteLine("Create a cmd.exe !");
+        }
+
+
+    }
+
     public class ShellProcess
     {
-        Process process;
-        List<string> ShellScriptInput;
+        public Process process;
+        public List<string> ShellScriptInput;
+        protected List<string> filesNames;
+        protected string folderPath;
 
-        public ShellProcess(string shellname)
+         public ShellProcess()
         {
-            process = new Process();
+            ProcessSetting();
+        }
+         public ShellProcess(List<string> fileNamesInput)
+        {
+            ProcessSetting();
+            filesNames = fileNamesInput;
+        }
+         public ShellProcess(string folderPathInput)
+        {
+            ProcessSetting();
+            folderPath = folderPathInput;
+        }
+
+        private void ProcessSetting()
+        {
             ShellScriptInput = new List<string>();
-            Console.WriteLine($"Create a {shellname} Process.");
-            process.StartInfo.FileName = shellname;
+            process = new Process();
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardInput = true;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
             process.StartInfo.CreateNoWindow = true;
-           
         }
+
         public void shellScriptAdd(string script)
         {
             ShellScriptInput.Add(script);
@@ -71,6 +95,31 @@ namespace ProcessClass
         {
             shellScriptAdd("conda activate opencv");
             shellScriptAdd(@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --input C:\Users\Lance\Desktop\2.JPG");
+        }
+
+        public void shellScript_showPicturesbyFiles()
+        {
+            if(filesNames.Count == 0)
+            {
+                Console.WriteLine("There is no selected pictures! ");
+                return;
+            }
+            shellScriptAdd("conda activate opencv");
+            foreach(string selectedPicture in filesNames)
+            {
+                shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --input {selectedPicture}");
+            }
+        }
+
+        public void shellScript_showPicturesbyFolder()
+        {
+            if (string.IsNullOrEmpty(folderPath))
+            {
+                Console.WriteLine("There is no Path!");
+                return;
+            }
+            shellScriptAdd("conda activate opencv");
+            shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --input {folderPath}");
         }
 
         public void shellRun()
@@ -100,8 +149,7 @@ namespace ProcessClass
 
 
 
-
-
     }
+
 }
 

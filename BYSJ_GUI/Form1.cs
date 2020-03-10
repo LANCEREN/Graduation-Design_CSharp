@@ -19,33 +19,69 @@ namespace BYSJ_GUI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BrowseFilesButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select Picture";
+            openFileDialog.Title = "Select Pictures";
+            openFileDialog.Filter = "Picture files(*.jpg;*.jpeg;*.bmp;*.png)|*.jpg;*.jpeg;*bmp;*.png| All files(*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.Multiselect = true;
             openFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            List<string> filesNames = new List<string>();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string[] strNames = openFileDialog.FileNames;
-                
-                //将文件名添加到 listbox 中
-                for (int i = 0; i < strNames.Length; i++)
+                if(openFileDialog.FileNames.Length == 0)
                 {
-                    Console.WriteLine(strNames[i]);
-                    Console.WriteLine(strNames.Length);
+                    MessageBox.Show("文件不能为空", "提示");
+                    return;
                 }
+                else
+                {
+                    string[] filesNamesArray = openFileDialog.FileNames;
+                    Console.WriteLine($"You have selected {filesNamesArray.Length} pictures.");
+                    //将文件名添加到 listbox 中
+                    for (int i = 0; i < filesNamesArray.Length; i++)
+                    {
+                        filesNames.Add(filesNamesArray[i]);
+                        Console.WriteLine(filesNamesArray[i]);
+                    }
+                }
+               
             }
-
             //TestProcess testProcess = new TestProcess();
             //testProcess.testRun();
 
-            //PwshProcess pwshProcess = new PwshProcess();
-            //pwshProcess.pwshRun();
+            CmdProcess cmdProcess = new CmdProcess(fileNamesInput: filesNames);
+            cmdProcess.shellScript_showPicturesbyFiles();
+            cmdProcess.shellRun();
+        }
 
-            ShellProcess shellProcess = new ShellProcess("cmd.exe");
-            shellProcess.shellScriptSampleAdd();
-            shellProcess.shellRun();
+        private void BrowseFoldersButton_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.Description = "Please select picture folders.";
+            folderBrowserDialog.ShowNewFolderButton = true;
+
+            string folderPath = null;
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
+                {
+                    MessageBox.Show("文件夹路径不能为空", "提示");
+                    return;
+                }
+                else
+                {
+                    folderPath = folderBrowserDialog.SelectedPath;
+                }
+            }
+            CmdProcess cmdProcess = new CmdProcess(folderPathInput: folderPath);
+            cmdProcess.shellScript_showPicturesbyFiles();
+            cmdProcess.shellRun();
 
         }
     }
 }
+
+
