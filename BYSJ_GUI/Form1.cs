@@ -44,6 +44,15 @@ namespace BYSJ_GUI
                     {
                         filesNames.Add(openFileDialog.FileNames[i]);
                         Console.WriteLine(openFileDialog.FileNames[i]);
+                        try
+                        {
+                            this.inputPictureBox.Image = Image.FromFile(openFileDialog.FileNames[i]);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        
                     }
                 }
             }
