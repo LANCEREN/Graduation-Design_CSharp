@@ -60,7 +60,7 @@ namespace BYSJ_GUI
             }
             #endregion
             #region 创建进程进行python处理
-            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(fileNamesInput: filesNames);
+            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(imageEnhanceStateInput: this.imageEnhanceCheckBox.Checked, fileNamesInput: filesNames);
             graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
             graduate_DesignProcess.ShellRun();
             #endregion
@@ -89,7 +89,7 @@ namespace BYSJ_GUI
             }
             #endregion
             #region 创建进程进行python处理
-            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(folderPathInput: folderPath);
+            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(imageEnhanceStateInput:this.imageEnhanceCheckBox.Checked,folderPathInput: folderPath);
             graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
             graduate_DesignProcess.ShellRun();
             #endregion

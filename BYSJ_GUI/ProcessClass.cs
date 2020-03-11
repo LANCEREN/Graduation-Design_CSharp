@@ -83,23 +83,28 @@ namespace ProcessClasses
 
     public class GraduateDesignProcess : CmdProcess, GraduateDesignInferface.IGDprocessInterface
     {
+        protected bool imageEnhanceState;
         protected List<string> filesNames;
         protected string folderPath;
 
         /// <summary>
         /// 通过图片文件绝对路径进行Process_in_python构造
         /// </summary>
+        /// <param name="imageEnhanceStateInput">是否开启图像增强</param>
         /// <param name="fileNamesInput">图片文件绝对路径的List</param>
-        public GraduateDesignProcess(List<string> fileNamesInput) : base()
+        public GraduateDesignProcess(bool imageEnhanceStateInput, List<string> fileNamesInput) : base()
         {
+            imageEnhanceState = imageEnhanceStateInput;
             filesNames = fileNamesInput;
         }
         /// <summary>
         /// 通过图片文件夹绝对路径进行Process_in_python构造
         /// </summary>
+        /// <param name="imageEnhanceStateInput">是否开启图像增强</param>
         /// <param name="folderPathInput">图片文件夹绝对路径</param>
-        public GraduateDesignProcess(string folderPathInput) : base()
+        public GraduateDesignProcess(bool imageEnhanceStateInput, string folderPathInput) : base()
         {
+            imageEnhanceState = imageEnhanceStateInput;
             folderPath = folderPathInput;
         }
 
