@@ -12,12 +12,12 @@ folderPath = arg.folder
 
 if filePath != "default":
 	print(filePath)
-	img = cv2.imread(filePath)
-	cv2.namedWindow("win",cv2.WINDOW_AUTOSIZE)
-	cv2.imshow("win",img)
+	#img = cv2.imread(filePath)
+	#cv2.namedWindow("win",cv2.WINDOW_AUTOSIZE)
+	#cv2.imshow("win",img)
 
-	cv2.waitKey(500)
-	cv2.destroyAllWindows()
+	#cv2.waitKey(500)
+	#cv2.destroyAllWindows()
 	print("----")
 elif folderPath != "default":
 	pass

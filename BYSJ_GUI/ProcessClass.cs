@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Windows.Forms;
 
 
-namespace ProcessClassesNamespace
+namespace ProcessClasses
 {
     public class ShellProcess
     {
         public Process process;
-        public List<string> ShellScriptInput;
+        public List<string> shellScriptInput;
 
-         public ShellProcess()
+        public ShellProcess()
         {
             ProcessSetting();
         }
 
         private void ProcessSetting()
         {
-            ShellScriptInput = new List<string>();
+            shellScriptInput = new List<string>();
             process = new Process();
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardInput = true;
@@ -29,20 +29,24 @@ namespace ProcessClassesNamespace
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.FileName = "cmd.exe";
         }
-
-        public void shellScriptAdd(string script)
+        /// <summary>
+        /// 添加shellScript脚本命令
+        /// </summary>
+        public void ShellScriptAdd(string script)
         {
-            ShellScriptInput.Add(script);
+            shellScriptInput.Add(script);
         }
-
-        public void shellRun()
+        /// <summary>
+        /// 通过shellScript执行脚本
+        /// </summary>
+        public void ShellRun()
         {
-            shellScriptAdd("exit");
+            ShellScriptAdd("exit");
             try
             {
                 process.Start();
                 process.StandardInput.AutoFlush = true;
-                foreach (string shell_StringLine in ShellScriptInput)
+                foreach (string shell_StringLine in shellScriptInput)
                 {
                     process.StandardInput.WriteLine(shell_StringLine);
                 }
@@ -77,60 +81,78 @@ namespace ProcessClassesNamespace
 
     }
 
-    public class Graduate_DesignProcess : CmdProcess
+    public class GraduateDesignProcess : CmdProcess, GraduateDesignInferface.IGDprocessInterface
     {
+        protected bool imageEnhanceState;
         protected List<string> filesNames;
         protected string folderPath;
 
-        public Graduate_DesignProcess(List<string> fileNamesInput) : base()
+        /// <summary>
+        /// 通过图片文件绝对路径进行Process_in_python构造
+        /// </summary>
+        /// <param name="imageEnhanceStateInput">是否开启图像增强</param>
+        /// <param name="fileNamesInput">图片文件绝对路径的List</param>
+        public GraduateDesignProcess(bool imageEnhanceStateInput, List<string> fileNamesInput) : base()
         {
+            imageEnhanceState = imageEnhanceStateInput;
             filesNames = fileNamesInput;
         }
-        public Graduate_DesignProcess(string folderPathInput) : base()
+        /// <summary>
+        /// 通过图片文件夹绝对路径进行Process_in_python构造
+        /// </summary>
+        /// <param name="imageEnhanceStateInput">是否开启图像增强</param>
+        /// <param name="folderPathInput">图片文件夹绝对路径</param>
+        public GraduateDesignProcess(bool imageEnhanceStateInput, string folderPathInput) : base()
         {
+            imageEnhanceState = imageEnhanceStateInput;
             folderPath = folderPathInput;
         }
 
-        public void GD_processScript_showPicturesbyFiles()
+        /// <summary>
+        /// 通过图片文件绝对路径进行Process_in_python构造
+        /// </summary>
+        public void GDprocessScript_ShowPicturesbyFiles()
         {
             if (filesNames.Count == 0)
             {
                 Console.WriteLine("There is no selected pictures! ");
                 return;
             }
-            shellScriptAdd("conda activate opencv");
+            ShellScriptAdd("conda activate opencv");
             foreach (string selectedPicture in filesNames)
             {
-                shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --file {selectedPicture}");
+                ShellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --file {selectedPicture}");
             }
         }
-
-        public void GD_processScript_showPicturesbyFolder()
+        /// <summary>
+        /// 通过图片文件夹绝对路径进行Process_in_python
+        /// </summary>
+        public void GDprocessScript_ShowPicturesbyFolder()
         {
             if (string.IsNullOrEmpty(folderPath))
             {
                 Console.WriteLine("There is no Path!");
                 return;
             }
-            shellScriptAdd("conda activate opencv");
-            shellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --folder {folderPath}");
+            ShellScriptAdd("conda activate opencv");
+            ShellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --folder {folderPath}");
         }
 
     }
 
     public class TestPowershellProcess
     {
-        Runspace runspace;
+        Runspace runSpace;
         PowerShell powerShell;
         public TestPowershellProcess()
         {
-            runspace = RunspaceFactory.CreateRunspace();
+            runSpace = RunspaceFactory.CreateRunspace();
             powerShell = PowerShell.Create();
         }
         public void TestPowershellRun()
         {
-            runspace.Open();
-            powerShell.Runspace = runspace;
+            runSpace.Open();
+            powerShell.Runspace = runSpace;
             powerShell.AddScript("get-childitem -Force");
 
             foreach (PSObject result in powerShell.Invoke())
@@ -140,5 +162,14 @@ namespace ProcessClassesNamespace
         }
     }
 
+}
+
+namespace GraduateDesignInferface
+{
+    interface IGDprocessInterface
+    {
+        void GDprocessScript_ShowPicturesbyFiles();
+        void GDprocessScript_ShowPicturesbyFolder();
+    }
 }
 
