@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ProcessClassesNamespace;
+using ProcessClasses;
 
 namespace BYSJ_GUI
 {
@@ -38,19 +38,18 @@ namespace BYSJ_GUI
                 }
                 else
                 {
-                    string[] filesNamesArray = openFileDialog.FileNames;
-                    Console.WriteLine($"You have selected {filesNamesArray.Length} pictures.");
+                    Console.WriteLine($"You have selected {openFileDialog.FileNames.Length} pictures.");
                     //将文件名添加到 listbox 中
-                    for (int i = 0; i < filesNamesArray.Length; i++)
+                    for (int i = 0; i < openFileDialog.FileNames.Length; i++)
                     {
-                        filesNames.Add(filesNamesArray[i]);
-                        Console.WriteLine(filesNamesArray[i]);
+                        filesNames.Add(openFileDialog.FileNames[i]);
+                        Console.WriteLine(openFileDialog.FileNames[i]);
                     }
                 }
             }
-            Graduate_DesignProcess graduate_DesignProcess = new Graduate_DesignProcess(fileNamesInput: filesNames);
-            graduate_DesignProcess.GD_processScript_showPicturesbyFiles();
-            graduate_DesignProcess.shellRun();
+            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(fileNamesInput: filesNames);
+            graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
+            graduate_DesignProcess.ShellRun();
         }
 
         private void BrowseFoldersButton_Click(object sender, EventArgs e)
@@ -72,9 +71,9 @@ namespace BYSJ_GUI
                     folderPath = folderBrowserDialog.SelectedPath;
                 }
             }
-            Graduate_DesignProcess graduate_DesignProcess = new Graduate_DesignProcess(folderPathInput: folderPath);
-            graduate_DesignProcess.GD_processScript_showPicturesbyFiles();
-            graduate_DesignProcess.shellRun();
+            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(folderPathInput: folderPath);
+            graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
+            graduate_DesignProcess.ShellRun();
 
         }
     }
