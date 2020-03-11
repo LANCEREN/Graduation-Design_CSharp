@@ -162,7 +162,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2395, 1281);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(2376, 1126);
             this.Controls.Add(this.plateDigitPictureBox4);
             this.Controls.Add(this.plateDigitPictureBox5);
             this.Controls.Add(this.plateDigitPictureBox3);
