@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
+using System.Windows.Forms;
 
 
 namespace ProcessClasses
@@ -13,7 +13,7 @@ namespace ProcessClasses
         public Process process;
         public List<string> shellScriptInput;
 
-         public ShellProcess()
+        public ShellProcess()
         {
             ProcessSetting();
         }
@@ -29,12 +29,16 @@ namespace ProcessClasses
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.FileName = "cmd.exe";
         }
-
+        /// <summary>
+        /// 添加shellScript脚本命令
+        /// </summary>
         public void ShellScriptAdd(string script)
         {
             shellScriptInput.Add(script);
         }
-
+        /// <summary>
+        /// 通过shellScript执行脚本
+        /// </summary>
         public void ShellRun()
         {
             ShellScriptAdd("exit");
@@ -77,20 +81,31 @@ namespace ProcessClasses
 
     }
 
-    public class GraduateDesignProcess : CmdProcess,GraduateDesignInferface.IGDprocessInterface
+    public class GraduateDesignProcess : CmdProcess, GraduateDesignInferface.IGDprocessInterface
     {
         protected List<string> filesNames;
         protected string folderPath;
 
+        /// <summary>
+        /// 通过图片文件绝对路径进行Process_in_python构造
+        /// </summary>
+        /// <param name="fileNamesInput">图片文件绝对路径的List</param>
         public GraduateDesignProcess(List<string> fileNamesInput) : base()
         {
             filesNames = fileNamesInput;
         }
+        /// <summary>
+        /// 通过图片文件夹绝对路径进行Process_in_python构造
+        /// </summary>
+        /// <param name="folderPathInput">图片文件夹绝对路径</param>
         public GraduateDesignProcess(string folderPathInput) : base()
         {
             folderPath = folderPathInput;
         }
 
+        /// <summary>
+        /// 通过图片文件绝对路径进行Process_in_python构造
+        /// </summary>
         public void GDprocessScript_ShowPicturesbyFiles()
         {
             if (filesNames.Count == 0)
@@ -104,7 +119,9 @@ namespace ProcessClasses
                 ShellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --file {selectedPicture}");
             }
         }
-
+        /// <summary>
+        /// 通过图片文件夹绝对路径进行Process_in_python
+        /// </summary>
         public void GDprocessScript_ShowPicturesbyFolder()
         {
             if (string.IsNullOrEmpty(folderPath))

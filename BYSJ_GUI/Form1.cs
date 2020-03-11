@@ -21,13 +21,15 @@ namespace BYSJ_GUI
 
         private void BrowseFilesButton_Click(object sender, EventArgs e)
         {
+            #region 初始化
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Select Pictures";
             openFileDialog.Filter = "Picture files(*.jpg;*.jpeg;*.bmp;*.png)|*.jpg;*.jpeg;*bmp;*.png| All files(*.*)|*.*";
             openFileDialog.FilterIndex = 2;
             openFileDialog.Multiselect = true;
             openFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
+            #endregion
+            #region Form处理
             List<string> filesNames = new List<string>();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -56,17 +58,22 @@ namespace BYSJ_GUI
                     }
                 }
             }
+            #endregion
+            #region 创建进程进行python处理
             GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(fileNamesInput: filesNames);
             graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
             graduate_DesignProcess.ShellRun();
+            #endregion
         }
 
         private void BrowseFoldersButton_Click(object sender, EventArgs e)
         {
+            #region 初始化
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.Description = "Please select picture folders.";
             folderBrowserDialog.ShowNewFolderButton = true;
-
+            #endregion
+            #region Form处理
             string folderPath = null;
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
@@ -80,10 +87,12 @@ namespace BYSJ_GUI
                     folderPath = folderBrowserDialog.SelectedPath;
                 }
             }
+            #endregion
+            #region 创建进程进行python处理
             GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(folderPathInput: folderPath);
             graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
             graduate_DesignProcess.ShellRun();
-
+            #endregion
         }
     }
 }
