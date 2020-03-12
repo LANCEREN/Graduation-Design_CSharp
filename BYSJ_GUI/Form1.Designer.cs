@@ -41,6 +41,9 @@
             this.plateDigitPictureBox5 = new System.Windows.Forms.PictureBox();
             this.plateDigitPictureBox4 = new System.Windows.Forms.PictureBox();
             this.imageEnhanceCheckBox = new System.Windows.Forms.CheckBox();
+            this.plateInfoLabel = new System.Windows.Forms.Label();
+            this.carClassifyLabel = new System.Windows.Forms.Label();
+            this.OutputCarInfoCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.inputPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLocatePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.opticalCutPictureBox)).BeginInit();
@@ -171,12 +174,43 @@
             // 
             this.imageEnhanceCheckBox.AutoSize = true;
             this.imageEnhanceCheckBox.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageEnhanceCheckBox.Location = new System.Drawing.Point(36, 523);
+            this.imageEnhanceCheckBox.Location = new System.Drawing.Point(36, 521);
             this.imageEnhanceCheckBox.Name = "imageEnhanceCheckBox";
             this.imageEnhanceCheckBox.Size = new System.Drawing.Size(107, 19);
             this.imageEnhanceCheckBox.TabIndex = 12;
             this.imageEnhanceCheckBox.Text = "Image Enhance";
             this.imageEnhanceCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // plateInfoLabel
+            // 
+            this.plateInfoLabel.AutoSize = true;
+            this.plateInfoLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plateInfoLabel.Location = new System.Drawing.Point(699, 514);
+            this.plateInfoLabel.Name = "plateInfoLabel";
+            this.plateInfoLabel.Size = new System.Drawing.Size(93, 19);
+            this.plateInfoLabel.TabIndex = 13;
+            this.plateInfoLabel.Text = "车牌号码为：";
+            // 
+            // carClassifyLabel
+            // 
+            this.carClassifyLabel.AutoSize = true;
+            this.carClassifyLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.carClassifyLabel.Location = new System.Drawing.Point(699, 543);
+            this.carClassifyLabel.Name = "carClassifyLabel";
+            this.carClassifyLabel.Size = new System.Drawing.Size(93, 19);
+            this.carClassifyLabel.TabIndex = 14;
+            this.carClassifyLabel.Text = "车辆分类为：";
+            // 
+            // OutputCarInfoCheckBox
+            // 
+            this.OutputCarInfoCheckBox.AutoSize = true;
+            this.OutputCarInfoCheckBox.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputCarInfoCheckBox.Location = new System.Drawing.Point(149, 521);
+            this.OutputCarInfoCheckBox.Name = "OutputCarInfoCheckBox";
+            this.OutputCarInfoCheckBox.Size = new System.Drawing.Size(151, 19);
+            this.OutputCarInfoCheckBox.TabIndex = 15;
+            this.OutputCarInfoCheckBox.Text = "Output Car Information";
+            this.OutputCarInfoCheckBox.UseVisualStyleBackColor = true;
             // 
             // mainForm
             // 
@@ -184,6 +218,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1198, 581);
+            this.Controls.Add(this.OutputCarInfoCheckBox);
+            this.Controls.Add(this.carClassifyLabel);
+            this.Controls.Add(this.plateInfoLabel);
             this.Controls.Add(this.imageEnhanceCheckBox);
             this.Controls.Add(this.plateDigitPictureBox4);
             this.Controls.Add(this.plateDigitPictureBox5);
@@ -229,6 +266,9 @@
         private System.Windows.Forms.PictureBox plateDigitPictureBox5;
         private System.Windows.Forms.PictureBox plateDigitPictureBox4;
         private System.Windows.Forms.CheckBox imageEnhanceCheckBox;
+        private System.Windows.Forms.Label plateInfoLabel;
+        private System.Windows.Forms.Label carClassifyLabel;
+        private System.Windows.Forms.CheckBox OutputCarInfoCheckBox;
     }
 }
 

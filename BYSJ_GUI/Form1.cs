@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ProcessClasses;
+using GDClasses;
+using GDClasses.ProcessClasses;
 
 namespace BYSJ_GUI
 {
@@ -17,6 +18,7 @@ namespace BYSJ_GUI
         public mainForm()
         {
             InitializeComponent();
+            InitializeParam();
         }
 
         private void BrowseFilesButton_Click(object sender, EventArgs e)
@@ -31,6 +33,7 @@ namespace BYSJ_GUI
             #endregion
             #region Form处理
             List<string> filesNames = new List<string>();
+            GDProcessEventArgs gDProcessEventArgs;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 if(openFileDialog.FileNames.Length == 0)
@@ -58,9 +61,15 @@ namespace BYSJ_GUI
                     }
                 }
             }
+            gDProcessEventArgs = new GDProcessEventArgs(
+                filesNamesInput: filesNames,
+                imageEnhanceStateInput:imageEnhanceCheckBox.Checked,
+                outputCarInfoStateInput:OutputCarInfoCheckBox.Checked,
+                initModeInput:initMode.inputByFiles.ToString()
+                );
             #endregion
             #region 创建进程进行python处理
-            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(imageEnhanceStateInput: this.imageEnhanceCheckBox.Checked, fileNamesInput: filesNames);
+            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(gDProcessEventArgsInput: gDProcessEventArgs);
             graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
             graduate_DesignProcess.ShellRun();
             #endregion
@@ -75,6 +84,7 @@ namespace BYSJ_GUI
             #endregion
             #region Form处理
             string folderPath = null;
+            GDProcessEventArgs gDProcessEventArgs;
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 if (string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
@@ -87,12 +97,23 @@ namespace BYSJ_GUI
                     folderPath = folderBrowserDialog.SelectedPath;
                 }
             }
+            gDProcessEventArgs = new GDProcessEventArgs(
+                folderPathInput:folderPath,
+                imageEnhanceStateInput: imageEnhanceCheckBox.Checked,
+                outputCarInfoStateInput: OutputCarInfoCheckBox.Checked,
+                initModeInput: initMode.inputByFiles.ToString()
+                );
             #endregion
             #region 创建进程进行python处理
-            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(imageEnhanceStateInput:this.imageEnhanceCheckBox.Checked,folderPathInput: folderPath);
+            GraduateDesignProcess graduate_DesignProcess = new GraduateDesignProcess(gDProcessEventArgsInput: gDProcessEventArgs);
             graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
             graduate_DesignProcess.ShellRun();
             #endregion
+        }
+
+        protected void InitializeParam()
+        {
+
         }
     }
 }
