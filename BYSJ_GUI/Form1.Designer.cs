@@ -1,6 +1,6 @@
 ﻿namespace BYSJ_GUI
 {
-    partial class Form1
+    partial class mainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -79,7 +79,7 @@
             // 
             this.inputPictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.inputPictureBox.Location = new System.Drawing.Point(36, 55);
-            this.inputPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.inputPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.inputPictureBox.Name = "inputPictureBox";
             this.inputPictureBox.Size = new System.Drawing.Size(624, 416);
             this.inputPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,16 +89,16 @@
             // plateLocatePictureBox
             // 
             this.plateLocatePictureBox.Location = new System.Drawing.Point(699, 55);
-            this.plateLocatePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateLocatePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateLocatePictureBox.Name = "plateLocatePictureBox";
-            this.plateLocatePictureBox.Size = new System.Drawing.Size(469, 161);
+            this.plateLocatePictureBox.Size = new System.Drawing.Size(469, 166);
             this.plateLocatePictureBox.TabIndex = 3;
             this.plateLocatePictureBox.TabStop = false;
             // 
             // opticalCutPictureBox
             // 
-            this.opticalCutPictureBox.Location = new System.Drawing.Point(699, 236);
-            this.opticalCutPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.opticalCutPictureBox.Location = new System.Drawing.Point(699, 253);
+            this.opticalCutPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.opticalCutPictureBox.Name = "opticalCutPictureBox";
             this.opticalCutPictureBox.Size = new System.Drawing.Size(469, 84);
             this.opticalCutPictureBox.TabIndex = 4;
@@ -107,7 +107,7 @@
             // plateProvincePictureBox
             // 
             this.plateProvincePictureBox.Location = new System.Drawing.Point(699, 364);
-            this.plateProvincePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateProvincePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateProvincePictureBox.Name = "plateProvincePictureBox";
             this.plateProvincePictureBox.Size = new System.Drawing.Size(64, 100);
             this.plateProvincePictureBox.TabIndex = 5;
@@ -116,7 +116,7 @@
             // plateLetterPictureBox
             // 
             this.plateLetterPictureBox.Location = new System.Drawing.Point(766, 364);
-            this.plateLetterPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateLetterPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateLetterPictureBox.Name = "plateLetterPictureBox";
             this.plateLetterPictureBox.Size = new System.Drawing.Size(64, 100);
             this.plateLetterPictureBox.TabIndex = 6;
@@ -125,7 +125,7 @@
             // plateDigitPictureBox1
             // 
             this.plateDigitPictureBox1.Location = new System.Drawing.Point(838, 364);
-            this.plateDigitPictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox1.Name = "plateDigitPictureBox1";
             this.plateDigitPictureBox1.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox1.TabIndex = 7;
@@ -134,7 +134,7 @@
             // plateDigitPictureBox2
             // 
             this.plateDigitPictureBox2.Location = new System.Drawing.Point(905, 364);
-            this.plateDigitPictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox2.Name = "plateDigitPictureBox2";
             this.plateDigitPictureBox2.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox2.TabIndex = 8;
@@ -143,7 +143,7 @@
             // plateDigitPictureBox3
             // 
             this.plateDigitPictureBox3.Location = new System.Drawing.Point(972, 364);
-            this.plateDigitPictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox3.Name = "plateDigitPictureBox3";
             this.plateDigitPictureBox3.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox3.TabIndex = 9;
@@ -152,7 +152,7 @@
             // plateDigitPictureBox5
             // 
             this.plateDigitPictureBox5.Location = new System.Drawing.Point(1104, 364);
-            this.plateDigitPictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox5.Name = "plateDigitPictureBox5";
             this.plateDigitPictureBox5.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox5.TabIndex = 10;
@@ -161,7 +161,7 @@
             // plateDigitPictureBox4
             // 
             this.plateDigitPictureBox4.Location = new System.Drawing.Point(1038, 364);
-            this.plateDigitPictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox4.Name = "plateDigitPictureBox4";
             this.plateDigitPictureBox4.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox4.TabIndex = 11;
@@ -178,7 +178,7 @@
             this.imageEnhanceCheckBox.Text = "Image Enhance";
             this.imageEnhanceCheckBox.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,8 +197,8 @@
             this.Controls.Add(this.inputPictureBox);
             this.Controls.Add(this.BrowseFoldersButton);
             this.Controls.Add(this.BrowseFilesButton);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "mainForm";
+            this.Text = "License Plate Recognition and Classification";
             ((System.ComponentModel.ISupportInitialize)(this.inputPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLocatePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.opticalCutPictureBox)).EndInit();
