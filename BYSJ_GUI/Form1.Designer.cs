@@ -1,6 +1,6 @@
 ﻿namespace BYSJ_GUI
 {
-    partial class Form1
+    partial class mainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -41,6 +41,9 @@
             this.plateDigitPictureBox5 = new System.Windows.Forms.PictureBox();
             this.plateDigitPictureBox4 = new System.Windows.Forms.PictureBox();
             this.imageEnhanceCheckBox = new System.Windows.Forms.CheckBox();
+            this.plateInfoLabel = new System.Windows.Forms.Label();
+            this.carClassifyLabel = new System.Windows.Forms.Label();
+            this.OutputCarInfoCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.inputPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLocatePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.opticalCutPictureBox)).BeginInit();
@@ -79,7 +82,7 @@
             // 
             this.inputPictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.inputPictureBox.Location = new System.Drawing.Point(36, 55);
-            this.inputPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.inputPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.inputPictureBox.Name = "inputPictureBox";
             this.inputPictureBox.Size = new System.Drawing.Size(624, 416);
             this.inputPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -88,17 +91,19 @@
             // 
             // plateLocatePictureBox
             // 
+            this.plateLocatePictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateLocatePictureBox.Location = new System.Drawing.Point(699, 55);
-            this.plateLocatePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateLocatePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateLocatePictureBox.Name = "plateLocatePictureBox";
-            this.plateLocatePictureBox.Size = new System.Drawing.Size(469, 161);
+            this.plateLocatePictureBox.Size = new System.Drawing.Size(469, 166);
             this.plateLocatePictureBox.TabIndex = 3;
             this.plateLocatePictureBox.TabStop = false;
             // 
             // opticalCutPictureBox
             // 
-            this.opticalCutPictureBox.Location = new System.Drawing.Point(699, 236);
-            this.opticalCutPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.opticalCutPictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.opticalCutPictureBox.Location = new System.Drawing.Point(699, 253);
+            this.opticalCutPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.opticalCutPictureBox.Name = "opticalCutPictureBox";
             this.opticalCutPictureBox.Size = new System.Drawing.Size(469, 84);
             this.opticalCutPictureBox.TabIndex = 4;
@@ -106,8 +111,9 @@
             // 
             // plateProvincePictureBox
             // 
+            this.plateProvincePictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateProvincePictureBox.Location = new System.Drawing.Point(699, 364);
-            this.plateProvincePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateProvincePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateProvincePictureBox.Name = "plateProvincePictureBox";
             this.plateProvincePictureBox.Size = new System.Drawing.Size(64, 100);
             this.plateProvincePictureBox.TabIndex = 5;
@@ -115,8 +121,9 @@
             // 
             // plateLetterPictureBox
             // 
+            this.plateLetterPictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateLetterPictureBox.Location = new System.Drawing.Point(766, 364);
-            this.plateLetterPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateLetterPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateLetterPictureBox.Name = "plateLetterPictureBox";
             this.plateLetterPictureBox.Size = new System.Drawing.Size(64, 100);
             this.plateLetterPictureBox.TabIndex = 6;
@@ -124,8 +131,9 @@
             // 
             // plateDigitPictureBox1
             // 
+            this.plateDigitPictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox1.Location = new System.Drawing.Point(838, 364);
-            this.plateDigitPictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox1.Name = "plateDigitPictureBox1";
             this.plateDigitPictureBox1.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox1.TabIndex = 7;
@@ -133,8 +141,9 @@
             // 
             // plateDigitPictureBox2
             // 
+            this.plateDigitPictureBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox2.Location = new System.Drawing.Point(905, 364);
-            this.plateDigitPictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox2.Name = "plateDigitPictureBox2";
             this.plateDigitPictureBox2.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox2.TabIndex = 8;
@@ -142,8 +151,9 @@
             // 
             // plateDigitPictureBox3
             // 
+            this.plateDigitPictureBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox3.Location = new System.Drawing.Point(972, 364);
-            this.plateDigitPictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox3.Name = "plateDigitPictureBox3";
             this.plateDigitPictureBox3.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox3.TabIndex = 9;
@@ -151,8 +161,9 @@
             // 
             // plateDigitPictureBox5
             // 
+            this.plateDigitPictureBox5.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox5.Location = new System.Drawing.Point(1104, 364);
-            this.plateDigitPictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox5.Name = "plateDigitPictureBox5";
             this.plateDigitPictureBox5.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox5.TabIndex = 10;
@@ -160,8 +171,9 @@
             // 
             // plateDigitPictureBox4
             // 
+            this.plateDigitPictureBox4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox4.Location = new System.Drawing.Point(1038, 364);
-            this.plateDigitPictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plateDigitPictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox4.Name = "plateDigitPictureBox4";
             this.plateDigitPictureBox4.Size = new System.Drawing.Size(64, 100);
             this.plateDigitPictureBox4.TabIndex = 11;
@@ -171,19 +183,53 @@
             // 
             this.imageEnhanceCheckBox.AutoSize = true;
             this.imageEnhanceCheckBox.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageEnhanceCheckBox.Location = new System.Drawing.Point(36, 523);
+            this.imageEnhanceCheckBox.Location = new System.Drawing.Point(36, 521);
             this.imageEnhanceCheckBox.Name = "imageEnhanceCheckBox";
             this.imageEnhanceCheckBox.Size = new System.Drawing.Size(107, 19);
             this.imageEnhanceCheckBox.TabIndex = 12;
             this.imageEnhanceCheckBox.Text = "Image Enhance";
             this.imageEnhanceCheckBox.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // plateInfoLabel
+            // 
+            this.plateInfoLabel.AutoSize = true;
+            this.plateInfoLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plateInfoLabel.Location = new System.Drawing.Point(699, 514);
+            this.plateInfoLabel.Name = "plateInfoLabel";
+            this.plateInfoLabel.Size = new System.Drawing.Size(93, 19);
+            this.plateInfoLabel.TabIndex = 13;
+            this.plateInfoLabel.Text = "车牌号码为：";
+            // 
+            // carClassifyLabel
+            // 
+            this.carClassifyLabel.AutoSize = true;
+            this.carClassifyLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.carClassifyLabel.Location = new System.Drawing.Point(699, 543);
+            this.carClassifyLabel.Name = "carClassifyLabel";
+            this.carClassifyLabel.Size = new System.Drawing.Size(93, 19);
+            this.carClassifyLabel.TabIndex = 14;
+            this.carClassifyLabel.Text = "车辆分类为：";
+            // 
+            // OutputCarInfoCheckBox
+            // 
+            this.OutputCarInfoCheckBox.AutoSize = true;
+            this.OutputCarInfoCheckBox.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputCarInfoCheckBox.Location = new System.Drawing.Point(149, 521);
+            this.OutputCarInfoCheckBox.Name = "OutputCarInfoCheckBox";
+            this.OutputCarInfoCheckBox.Size = new System.Drawing.Size(151, 19);
+            this.OutputCarInfoCheckBox.TabIndex = 15;
+            this.OutputCarInfoCheckBox.Text = "Output Car Information";
+            this.OutputCarInfoCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1198, 581);
+            this.Controls.Add(this.OutputCarInfoCheckBox);
+            this.Controls.Add(this.carClassifyLabel);
+            this.Controls.Add(this.plateInfoLabel);
             this.Controls.Add(this.imageEnhanceCheckBox);
             this.Controls.Add(this.plateDigitPictureBox4);
             this.Controls.Add(this.plateDigitPictureBox5);
@@ -197,8 +243,8 @@
             this.Controls.Add(this.inputPictureBox);
             this.Controls.Add(this.BrowseFoldersButton);
             this.Controls.Add(this.BrowseFilesButton);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "mainForm";
+            this.Text = "License Plate Recognition and Classification";
             ((System.ComponentModel.ISupportInitialize)(this.inputPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLocatePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.opticalCutPictureBox)).EndInit();
@@ -229,6 +275,9 @@
         private System.Windows.Forms.PictureBox plateDigitPictureBox5;
         private System.Windows.Forms.PictureBox plateDigitPictureBox4;
         private System.Windows.Forms.CheckBox imageEnhanceCheckBox;
+        private System.Windows.Forms.Label plateInfoLabel;
+        private System.Windows.Forms.Label carClassifyLabel;
+        private System.Windows.Forms.CheckBox OutputCarInfoCheckBox;
     }
 }
 
