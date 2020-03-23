@@ -91,6 +91,7 @@
             // 
             // plateLocatePictureBox
             // 
+            this.plateLocatePictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateLocatePictureBox.Location = new System.Drawing.Point(699, 55);
             this.plateLocatePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateLocatePictureBox.Name = "plateLocatePictureBox";
@@ -100,6 +101,7 @@
             // 
             // opticalCutPictureBox
             // 
+            this.opticalCutPictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.opticalCutPictureBox.Location = new System.Drawing.Point(699, 253);
             this.opticalCutPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.opticalCutPictureBox.Name = "opticalCutPictureBox";
@@ -109,6 +111,7 @@
             // 
             // plateProvincePictureBox
             // 
+            this.plateProvincePictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateProvincePictureBox.Location = new System.Drawing.Point(699, 364);
             this.plateProvincePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateProvincePictureBox.Name = "plateProvincePictureBox";
@@ -118,6 +121,7 @@
             // 
             // plateLetterPictureBox
             // 
+            this.plateLetterPictureBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateLetterPictureBox.Location = new System.Drawing.Point(766, 364);
             this.plateLetterPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateLetterPictureBox.Name = "plateLetterPictureBox";
@@ -127,6 +131,7 @@
             // 
             // plateDigitPictureBox1
             // 
+            this.plateDigitPictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox1.Location = new System.Drawing.Point(838, 364);
             this.plateDigitPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox1.Name = "plateDigitPictureBox1";
@@ -136,6 +141,7 @@
             // 
             // plateDigitPictureBox2
             // 
+            this.plateDigitPictureBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox2.Location = new System.Drawing.Point(905, 364);
             this.plateDigitPictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox2.Name = "plateDigitPictureBox2";
@@ -145,6 +151,7 @@
             // 
             // plateDigitPictureBox3
             // 
+            this.plateDigitPictureBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox3.Location = new System.Drawing.Point(972, 364);
             this.plateDigitPictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox3.Name = "plateDigitPictureBox3";
@@ -154,6 +161,7 @@
             // 
             // plateDigitPictureBox5
             // 
+            this.plateDigitPictureBox5.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox5.Location = new System.Drawing.Point(1104, 364);
             this.plateDigitPictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox5.Name = "plateDigitPictureBox5";
@@ -163,6 +171,7 @@
             // 
             // plateDigitPictureBox4
             // 
+            this.plateDigitPictureBox4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.plateDigitPictureBox4.Location = new System.Drawing.Point(1038, 364);
             this.plateDigitPictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox4.Name = "plateDigitPictureBox4";
