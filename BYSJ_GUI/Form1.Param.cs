@@ -11,7 +11,7 @@ namespace BYSJ_GUI
         protected enum initMode
         {
             inputByFiles = 0,
-            inputByFolder =1
+            inputByFolder = 1
         };
     }
 }

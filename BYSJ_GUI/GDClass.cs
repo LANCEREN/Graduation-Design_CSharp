@@ -77,20 +77,19 @@ namespace GDClasses
             private void CmdProcessSetting()
             {
                 process.StartInfo.FileName = "cmd.exe";
-                Console.WriteLine("Create a cmd.exe ");
             }
 
         }
 
         public class GraduateDesignProcess : CmdProcess, GraduateDesignInferface.IGDprocessInterface
         {
-            protected GDProcessEventArgs gDProcessEventArgs;
+            protected GDArgsClasses.GDProcessEventArgs gDProcessEventArgs;
 
             /// <summary>
             /// 通过图片文件绝对路径进行Process_in_python构造
             /// </summary>
             /// <param name="gDProcessEventArgsInput">Process参数类</param>
-            public GraduateDesignProcess(GDProcessEventArgs gDProcessEventArgsInput) : base()
+            public GraduateDesignProcess(GDArgsClasses.GDProcessEventArgs gDProcessEventArgsInput) : base()
             {
                 gDProcessEventArgs = gDProcessEventArgsInput;
             }
@@ -102,13 +101,13 @@ namespace GDClasses
             {
                 if (gDProcessEventArgs.filesNames.Count == 0)
                 {
-                    Console.WriteLine("There is no selected pictures! ");
+                    Console.WriteLine("GDprocessScript_ShowPicturesbyFiles   gDProcessEventArgs.filesNames.Count == 0");
                     return;
                 }
-                ShellScriptAdd("conda activate opencv");
+                ShellScriptAdd("conda activate GD");
                 foreach (string selectedPicture in gDProcessEventArgs.filesNames)
                 {
-                    ShellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --file {selectedPicture}");
+                    ShellScriptAdd($@"python c:\Users\Lance\Desktop\Graduation-Design_Py\main.py --img_process --file {selectedPicture}");
                 }
             }
             /// <summary>
@@ -122,7 +121,7 @@ namespace GDClasses
                     return;
                 }
                 ShellScriptAdd("conda activate opencv");
-                ShellScriptAdd($@"python C:\Users\Lance\source\repos\BYSJ\BYSJ_GUI\test.py --folder {gDProcessEventArgs.folderPath}");
+                ShellScriptAdd($@"python c:\Users\Lance\Desktop\Graduation-Design_Py\main.py --folder {gDProcessEventArgs.folderPath}");
             }
 
         }
@@ -150,50 +149,63 @@ namespace GDClasses
         }
 
     }
-    public class GDProcessEventArgs
+    namespace GDArgsClasses
     {
-        public bool imageEnhanceState;
-        public bool outputCarInfoState;
-        public string folderPath;
-        public List<string> filesNames;
-        public string initMode;
+        public class GDProcessEventArgs
+        {
+            public bool imageEnhanceState;
+            public bool outputCarInfoState;
+            public string folderPath;
+            public List<string> filesNames;
+            public string initMode;
 
-        /// <summary>
-        /// 通过图片文件夹绝对路径进行构造
-        /// </summary>
-        /// <param name="imageEnhanceStateInput">是否开启图像增强</param>
-        /// <param name="folderPathInput">图片文件夹绝对路径</param>
-        public GDProcessEventArgs
-            (bool imageEnhanceStateInput = false,
-            bool outputCarInfoStateInput =true,
-            string folderPathInput = "",
-            string initModeInput =""
-            )
-        {
-            imageEnhanceState = imageEnhanceStateInput;
-            outputCarInfoState = outputCarInfoStateInput;
-            folderPath = folderPathInput;
-            initMode = initModeInput;
-            filesNames = new List<string>();
+            /// <summary>
+            /// 通过图片文件夹绝对路径进行构造
+            /// </summary>
+            /// <param name="imageEnhanceStateInput">是否开启图像增强</param>
+            /// <param name="folderPathInput">图片文件夹绝对路径</param>
+            public GDProcessEventArgs
+                (bool imageEnhanceStateInput = false,
+                bool outputCarInfoStateInput = true,
+                string folderPathInput = "",
+                string initModeInput = ""
+                )
+            {
+                imageEnhanceState = imageEnhanceStateInput;
+                outputCarInfoState = outputCarInfoStateInput;
+                folderPath = folderPathInput;
+                initMode = initModeInput;
+                filesNames = new List<string>();
+            }
+            /// <summary>
+            /// 通过图片文件绝对路径进行构造
+            /// </summary>
+            /// <param name="imageEnhanceStateInput">是否开启图像增强</param>
+            /// <param name="filesNamesInput">图片文件绝对路径的List</param>
+            public GDProcessEventArgs
+                (List<string> filesNamesInput,
+                bool imageEnhanceStateInput = false,
+                bool outputCarInfoStateInput = true,
+                string folderPathInput = "",
+                string initModeInput = ""
+                )
+            {
+                imageEnhanceState = imageEnhanceStateInput;
+                outputCarInfoState = outputCarInfoStateInput;
+                folderPath = folderPathInput;
+                initMode = initModeInput;
+                filesNames = filesNamesInput;
+            }
         }
-        /// <summary>
-        /// 通过图片文件绝对路径进行构造
-        /// </summary>
-        /// <param name="imageEnhanceStateInput">是否开启图像增强</param>
-        /// <param name="filesNamesInput">图片文件绝对路径的List</param>
-        public GDProcessEventArgs
-            (List<string> filesNamesInput, 
-            bool imageEnhanceStateInput = false,
-            bool outputCarInfoStateInput = true,
-            string folderPathInput = "",
-            string initModeInput = ""
-            )
+    }
+    namespace GDExceptionClass
+    {
+        public class MyException : Exception
         {
-            imageEnhanceState = imageEnhanceStateInput;
-            outputCarInfoState = outputCarInfoStateInput;
-            folderPath = folderPathInput;
-            initMode = initModeInput;
-            filesNames = filesNamesInput;
+            public MyException(string message) : base(message: message)
+            {
+
+            }
         }
     }
 }
