@@ -44,6 +44,8 @@
             this.plateInfoLabel = new System.Windows.Forms.Label();
             this.carClassifyLabel = new System.Windows.Forms.Label();
             this.OutputCarInfoCheckBox = new System.Windows.Forms.CheckBox();
+            this.averageConfLabel = new System.Windows.Forms.Label();
+            this.timeElapseLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.inputPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plateLocatePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.opticalCutPictureBox)).BeginInit();
@@ -205,9 +207,9 @@
             this.plateInfoLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.plateInfoLabel.Location = new System.Drawing.Point(699, 514);
             this.plateInfoLabel.Name = "plateInfoLabel";
-            this.plateInfoLabel.Size = new System.Drawing.Size(166, 19);
+            this.plateInfoLabel.Size = new System.Drawing.Size(93, 19);
             this.plateInfoLabel.TabIndex = 13;
-            this.plateInfoLabel.Text = "车牌号码为：京N27Q48";
+            this.plateInfoLabel.Text = "车牌号码为：";
             // 
             // carClassifyLabel
             // 
@@ -215,9 +217,9 @@
             this.carClassifyLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.carClassifyLabel.Location = new System.Drawing.Point(699, 543);
             this.carClassifyLabel.Name = "carClassifyLabel";
-            this.carClassifyLabel.Size = new System.Drawing.Size(177, 19);
+            this.carClassifyLabel.Size = new System.Drawing.Size(93, 19);
             this.carClassifyLabel.TabIndex = 14;
-            this.carClassifyLabel.Text = "车辆分类为：蓝牌小型轿车";
+            this.carClassifyLabel.Text = "车辆分类为：";
             // 
             // OutputCarInfoCheckBox
             // 
@@ -230,12 +232,34 @@
             this.OutputCarInfoCheckBox.Text = "Output Car Information";
             this.OutputCarInfoCheckBox.UseVisualStyleBackColor = true;
             // 
+            // averageConfLabel
+            // 
+            this.averageConfLabel.AutoSize = true;
+            this.averageConfLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.averageConfLabel.Location = new System.Drawing.Point(943, 514);
+            this.averageConfLabel.Name = "averageConfLabel";
+            this.averageConfLabel.Size = new System.Drawing.Size(121, 19);
+            this.averageConfLabel.TabIndex = 16;
+            this.averageConfLabel.Text = "平均识别置信度：";
+            // 
+            // timeElapseLabel
+            // 
+            this.timeElapseLabel.AutoSize = true;
+            this.timeElapseLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.timeElapseLabel.Location = new System.Drawing.Point(943, 543);
+            this.timeElapseLabel.Name = "timeElapseLabel";
+            this.timeElapseLabel.Size = new System.Drawing.Size(65, 19);
+            this.timeElapseLabel.TabIndex = 17;
+            this.timeElapseLabel.Text = "总耗时：";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1198, 581);
+            this.Controls.Add(this.timeElapseLabel);
+            this.Controls.Add(this.averageConfLabel);
             this.Controls.Add(this.OutputCarInfoCheckBox);
             this.Controls.Add(this.carClassifyLabel);
             this.Controls.Add(this.plateInfoLabel);
@@ -287,6 +311,8 @@
         private System.Windows.Forms.Label plateInfoLabel;
         private System.Windows.Forms.Label carClassifyLabel;
         private System.Windows.Forms.CheckBox OutputCarInfoCheckBox;
+        private System.Windows.Forms.Label averageConfLabel;
+        private System.Windows.Forms.Label timeElapseLabel;
     }
 }
 

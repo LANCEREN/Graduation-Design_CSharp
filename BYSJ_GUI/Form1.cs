@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,7 +30,7 @@ namespace BYSJ_GUI
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Select Pictures";
             openFileDialog.Filter = "Picture files(*.jpg;*.jpeg;*.bmp;*.png)|*.jpg;*.jpeg;*bmp;*.png| All files(*.*)|*.*";
-            openFileDialog.FilterIndex = 2;
+            openFileDialog.FilterIndex = 1;
             openFileDialog.Multiselect = true;
             openFileDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             #endregion
@@ -88,6 +89,23 @@ namespace BYSJ_GUI
                 this.plateDigitPictureBox3.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\4.jpg");
                 this.plateDigitPictureBox4.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\5.jpg");
                 this.plateDigitPictureBox5.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\6.jpg");
+
+                string txtPath = @"c:\Users\Lance\Desktop\Graduation-Design_Py\output\result.txt";
+                FileStream aFile = new FileStream(txtPath, FileMode.Open);
+                StreamReader sr = new StreamReader(aFile);//用FileStream对象实例化一个StreamReader对象   
+                                                          //strLine = sr.ReadToEnd();//读取完整的文件，如果用这个方法，就可以不用下面的while循环   
+                List<string> txtLines = new List<string>();
+                for (int i = 0; i < 4; i++)
+                {
+                    string txtLine = sr.ReadLine();
+                    txtLines.Add(txtLine);// 读取一行字符并返回  
+                    Console.WriteLine(txtLine);
+                }
+                sr.Close();
+                this.plateInfoLabel.Text += txtLines[0];
+                this.carClassifyLabel.Text += txtLines[1];
+                this.averageConfLabel.Text += Convert.ToDouble(txtLines[2]).ToString("P3");
+                this.timeElapseLabel.Text += Convert.ToDouble(txtLines[3]).ToString("f3")+"s";
             }
             catch (Exception ex)
             {
