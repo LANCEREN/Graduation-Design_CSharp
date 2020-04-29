@@ -96,6 +96,7 @@
             this.plateLocatePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateLocatePictureBox.Name = "plateLocatePictureBox";
             this.plateLocatePictureBox.Size = new System.Drawing.Size(469, 166);
+            this.plateLocatePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.plateLocatePictureBox.TabIndex = 3;
             this.plateLocatePictureBox.TabStop = false;
             // 
@@ -106,6 +107,7 @@
             this.opticalCutPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.opticalCutPictureBox.Name = "opticalCutPictureBox";
             this.opticalCutPictureBox.Size = new System.Drawing.Size(469, 84);
+            this.opticalCutPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.opticalCutPictureBox.TabIndex = 4;
             this.opticalCutPictureBox.TabStop = false;
             // 
@@ -116,6 +118,7 @@
             this.plateProvincePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateProvincePictureBox.Name = "plateProvincePictureBox";
             this.plateProvincePictureBox.Size = new System.Drawing.Size(64, 100);
+            this.plateProvincePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.plateProvincePictureBox.TabIndex = 5;
             this.plateProvincePictureBox.TabStop = false;
             // 
@@ -126,6 +129,7 @@
             this.plateLetterPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.plateLetterPictureBox.Name = "plateLetterPictureBox";
             this.plateLetterPictureBox.Size = new System.Drawing.Size(64, 100);
+            this.plateLetterPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.plateLetterPictureBox.TabIndex = 6;
             this.plateLetterPictureBox.TabStop = false;
             // 
@@ -136,6 +140,7 @@
             this.plateDigitPictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox1.Name = "plateDigitPictureBox1";
             this.plateDigitPictureBox1.Size = new System.Drawing.Size(64, 100);
+            this.plateDigitPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.plateDigitPictureBox1.TabIndex = 7;
             this.plateDigitPictureBox1.TabStop = false;
             // 
@@ -146,6 +151,7 @@
             this.plateDigitPictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox2.Name = "plateDigitPictureBox2";
             this.plateDigitPictureBox2.Size = new System.Drawing.Size(64, 100);
+            this.plateDigitPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.plateDigitPictureBox2.TabIndex = 8;
             this.plateDigitPictureBox2.TabStop = false;
             // 
@@ -156,6 +162,7 @@
             this.plateDigitPictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox3.Name = "plateDigitPictureBox3";
             this.plateDigitPictureBox3.Size = new System.Drawing.Size(64, 100);
+            this.plateDigitPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.plateDigitPictureBox3.TabIndex = 9;
             this.plateDigitPictureBox3.TabStop = false;
             // 
@@ -166,6 +173,7 @@
             this.plateDigitPictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox5.Name = "plateDigitPictureBox5";
             this.plateDigitPictureBox5.Size = new System.Drawing.Size(64, 100);
+            this.plateDigitPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.plateDigitPictureBox5.TabIndex = 10;
             this.plateDigitPictureBox5.TabStop = false;
             // 
@@ -176,6 +184,7 @@
             this.plateDigitPictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.plateDigitPictureBox4.Name = "plateDigitPictureBox4";
             this.plateDigitPictureBox4.Size = new System.Drawing.Size(64, 100);
+            this.plateDigitPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.plateDigitPictureBox4.TabIndex = 11;
             this.plateDigitPictureBox4.TabStop = false;
             // 
@@ -196,9 +205,9 @@
             this.plateInfoLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.plateInfoLabel.Location = new System.Drawing.Point(699, 514);
             this.plateInfoLabel.Name = "plateInfoLabel";
-            this.plateInfoLabel.Size = new System.Drawing.Size(93, 19);
+            this.plateInfoLabel.Size = new System.Drawing.Size(166, 19);
             this.plateInfoLabel.TabIndex = 13;
-            this.plateInfoLabel.Text = "车牌号码为：";
+            this.plateInfoLabel.Text = "车牌号码为：京N27Q48";
             // 
             // carClassifyLabel
             // 
@@ -206,9 +215,9 @@
             this.carClassifyLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.carClassifyLabel.Location = new System.Drawing.Point(699, 543);
             this.carClassifyLabel.Name = "carClassifyLabel";
-            this.carClassifyLabel.Size = new System.Drawing.Size(93, 19);
+            this.carClassifyLabel.Size = new System.Drawing.Size(177, 19);
             this.carClassifyLabel.TabIndex = 14;
-            this.carClassifyLabel.Text = "车辆分类为：";
+            this.carClassifyLabel.Text = "车辆分类为：蓝牌小型轿车";
             // 
             // OutputCarInfoCheckBox
             // 

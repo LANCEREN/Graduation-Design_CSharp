@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using GDClasses;
 using GDClasses.ProcessClasses;
+using GDClasses.GDArgsClasses;
+using GDClasses.GDExceptionClass;
 
 namespace BYSJ_GUI
 {
@@ -36,30 +38,32 @@ namespace BYSJ_GUI
             GDProcessEventArgs gDProcessEventArgs;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if(openFileDialog.FileNames.Length == 0)
+                try
                 {
-                    MessageBox.Show("文件不能为空", "提示");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"You have selected {openFileDialog.FileNames.Length} pictures.");
-                    //将文件名添加到 listbox 中
-                    for (int i = 0; i < openFileDialog.FileNames.Length; i++)
+                    if (openFileDialog.FileNames.Length == 0)
                     {
-                        filesNames.Add(openFileDialog.FileNames[i]);
-                        Console.WriteLine(openFileDialog.FileNames[i]);
-                        try
-                        {
-                            this.inputPictureBox.Image = Image.FromFile(openFileDialog.FileNames[i]);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                        
+                        throw new MyException("There is no selected pictures!");
                     }
                 }
+                catch(MyException myException)
+                {
+                    MessageBox.Show(myException.Message);
+                }
+
+                Console.WriteLine($"You have selected {openFileDialog.FileNames.Length} pictures.");
+                //将文件名添加到 listbox 中
+                for (int i = 0; i < openFileDialog.FileNames.Length; i++)
+                {
+                    filesNames.Add(openFileDialog.FileNames[i]);
+                    try
+                    {
+                        this.inputPictureBox.Image = Image.FromFile(openFileDialog.FileNames[i]);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                } 
             }
             gDProcessEventArgs = new GDProcessEventArgs(
                 filesNamesInput: filesNames,
@@ -73,6 +77,23 @@ namespace BYSJ_GUI
             graduate_DesignProcess.GDprocessScript_ShowPicturesbyFiles();
             graduate_DesignProcess.ShellRun();
             #endregion
+            try
+            {
+                this.plateLocatePictureBox.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\lpl\plateImg_general.jpg");
+                this.opticalCutPictureBox.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\lpl\plateImg_precise.jpg");
+                this.plateProvincePictureBox.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\0.jpg");
+                this.plateLetterPictureBox.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\1.jpg");
+                this.plateDigitPictureBox1.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\2.jpg");
+                this.plateDigitPictureBox2.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\3.jpg");
+                this.plateDigitPictureBox3.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\4.jpg");
+                this.plateDigitPictureBox4.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\5.jpg");
+                this.plateDigitPictureBox5.Image = Image.FromFile(@"c:\Users\Lance\Desktop\Graduation-Design_Py\output\ocr\6.jpg");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void BrowseFoldersButton_Click(object sender, EventArgs e)
